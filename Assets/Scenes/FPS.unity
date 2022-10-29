@@ -2255,6 +2255,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617229288}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1621761020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 978291778602604236, guid: 5e2198ab91d52504da371ce48d5313a8, type: 3}
+  m_PrefabInstance: {fileID: 1139881697950937613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1628913054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +2966,10 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 386496637}
+    - target: {fileID: 1139881697469904849, guid: 5e2198ab91d52504da371ce48d5313a8, type: 3}
+      propertyPath: pistola
+      value: 
+      objectReference: {fileID: 1621761020}
     - target: {fileID: 1139881697469904849, guid: 5e2198ab91d52504da371ce48d5313a8, type: 3}
       propertyPath: objetivo
       value: 
