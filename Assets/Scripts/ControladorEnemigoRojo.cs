@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class ControladorEnemigoRojo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform puntoInicio;
+    public Transform puntoFinal;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
     }

@@ -1,18 +1,20 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ControladorEnemigoMorado : MonoBehaviour
 {
     public Transform objetivo;
-    public Transform pistola;
+    public GameObject pistola;
+    public NavMeshAgent agente;
     public float rango = 1f;
     public float velocidad = .5f;
 
-    private Rigidbody _rigidbody;
+    //private Rigidbody _rigidbody;
 
-    private void Start()
-    {
-        _rigidbody = GetComponent("Rigidbody") as Rigidbody;
-    }
+    //private void Start()
+    //{
+    //    _rigidbody = GetComponent("Rigidbody") as Rigidbody;
+    //}
 
     void FixedUpdate()
     {
@@ -22,7 +24,7 @@ public class ControladorEnemigoMorado : MonoBehaviour
         {
             Debug.Log("dentro de rango");
             // dispara al jugador
-            Disparar();
+            //Disparar();
         }
         else
         {
@@ -39,10 +41,13 @@ public class ControladorEnemigoMorado : MonoBehaviour
     {
 
         //Vector3 nuevaPosicion = Vector3.MoveTowards(transform.position, objetivo.transform.position, velocidad);
-        Vector3 nuevaPosicion = Vector3.Lerp(transform.position, objetivo.transform.position, velocidad * Time.fixedDeltaTime);
-        _rigidbody.MovePosition(nuevaPosicion);
-        transform.LookAt(objetivo);
+        // Usando rigidbody, con LERP para que sea mas suave
+        //Vector3 nuevaPosicion = Vector3.Lerp(transform.position, objetivo.transform.position, velocidad * Time.fixedDeltaTime);
+        //_rigidbody.MovePosition(nuevaPosicion);
+        //transform.LookAt(objetivo);
 
+        // Usando pathfinding
+        agente.SetDestination(objetivo.transform.position);
     }
 
     /// <summary>
@@ -51,7 +56,7 @@ public class ControladorEnemigoMorado : MonoBehaviour
     void Disparar()
     {
         Debug.Log("dispara");
-        Ray rayOrigin = new Ray(pistola.position, Vector3.forward);
+        Ray rayOrigin = new Ray(pistola.transform.position, Vector3.forward);
         RaycastHit raycastHitInfo;
 
         if (Physics.Raycast(rayOrigin, out raycastHitInfo))
